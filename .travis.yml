@@ -25,6 +25,14 @@ jobs:
   include:
     - script:
         # package building added here purely to fail-fast if is broken
+        - python --version
+        - pwd
+        - ls -lah
+        - uname -a
+        - python --verison
+        - which python
+        - find /usr/ -name "setuptools*"
+        - pip freeze | grep setuptools
         - python setup.py sdist bdist_wheel
         - travis_wait python -m tox
       env: TOXENV=lint,py27,molecule
